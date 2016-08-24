@@ -1,0 +1,26 @@
+<!doctype html>
+
+<html>
+	<head>
+
+		<title>Tufts FML</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+		<link rel="stylesheet" href="style.css" />
+		<script>
+			function update() {
+				// Step 1: get the text that was typed in
+				// Idea: put all text in the "content" div
+				// Step 2: get the "content" div
+				// Step 3: put text inside content div
+				// This example prepends messages: last message at the top
+				document.getElementById("content").innerHTML = '<p class="message">' +document.getElementById("msg").value + " #FML</p>" + document.getElementById("content").innerHTML;
+			}
+		</script>
+	</head>
+
+	<body>
+		<h3>Vent your FML <input type="text" id="msg" size="30" onchange="update()"/></h3>
+		<div id="content"></div>
+	</body>
+</html>

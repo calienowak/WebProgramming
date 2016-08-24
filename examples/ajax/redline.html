@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Upcoming Red Line Trains</title>
+	<script>
+		request = new XMLHttpRequest();
+
+		// Step 1: Make request
+		request.open("GET", "https://sheltered-forest-5520.herokuapp.com/redline.json", true);
+		// NOTE: The original source of the data: http://developer.mbta.com/lib/rthr/red.json
+
+		// No, the following will NOT WORK!  *Can you explain why?*
+		//request.open("GET", "http://developer.mbta.com/lib/rthr/red.json", true);
+		
+		// Step 2: Handle the response. callme is a function defined below.
+		request.onreadystatechange = callme;
+
+		// Step 3: Fire off the request
+		request.send(null); // null means no data nec to send
+
+		function callme () {
+			// Step 3: Data is ready --there is a response!
+			// A common mistake people make: only check if readyState == 4. Why is that very bad?
+			if (request.readyState == 4 && request.status == 200) {
+				result = "";
+				raw = request.responseText;
+				theScheduleData = JSON.parse(raw);
+				elem = document.getElementById("list");
+				for (i = 0; i < theScheduleData["TripList"]["Trips"].length; i++) {
+					result += "<p>Next Red Line train to " + theScheduleData["TripList"]["Trips"][i]["Predictions"][0]["Stop"] + ", " + theScheduleData["TripList"]["Trips"][i]["Destination"] + " bound, will come in " + theScheduleData["TripList"]["Trips"][i]["Predictions"][0]["Seconds"] + " seconds</p>";
+				}
+				elem.innerHTML = result;
+			}
+			else if (request.readyState == 4 && request.status != 200) {
+				document.getElementById("list").innerHTML = "<p>Whoops, #fail</p>";
+			}
+		};
+	</script>
+</head>
+
+<body>
+	<h1>Upcoming Red Line Trains</h1>
+	<div id="list">Nothing to show...</div>
+</body>
+</html>

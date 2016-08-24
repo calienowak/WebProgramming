@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>Your Location</title>
+		
+		<script>
+			myLat = 0;
+			myLng = 0;
+			
+			function getMyLocation() {
+				console.log("Hit Me One");
+				if (navigator.geolocation) { // the navigator.geolocation object is supported on your browser
+					console.log("Hit Me Two");
+					navigator.geolocation.getCurrentPosition(function(position) {
+							console.log("Hit Me Three");
+							myLat = position.coords.latitude;
+							myLng = position.coords.longitude;
+							elem = document.getElementById("info");
+							elem.innerHTML = "<h1>You are in " + myLat + ", " + myLng + "</h1>";
+						});
+					console.log("Hit Me Four");
+				}
+				else {
+					alert("Geolocation is not supported by your web browser.  What a shame!");
+				}
+			}
+		</script>
+	</head>
+	
+	<body onload="getMyLocation()">
+		<div id="info">
+			<h1>Getting your location...</h1>
+		</div>
+	</body>
+</html>
