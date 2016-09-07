@@ -20,6 +20,7 @@
 * HTTP commands: GET and POST
   * GET: Download data
   * POST: Upload data, send data to web server
+* Demo: Web server
 * Q: How to browse web without web browser?
   
 #Tuesday, September 13th: HTML
