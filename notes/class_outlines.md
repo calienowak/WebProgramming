@@ -45,6 +45,8 @@
 #Thursday, September 15th: Revision Control with Git
 * Last class: HTML => for the content, for document appearance and behavior, W3C validator
 * Last class: Two major types of HTML body elements: block level and inline
+* Recall question: difference between absolute and relative URLs --which to use for portability?
+* Recall question: why is the `alt` attribute necessary for images?
 * Question: _how do you build a web browser?_
 * What I am NOT going to do: discuss every HTML tag
 * What is important to discuss: the finer points of HTML
