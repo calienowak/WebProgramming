@@ -47,18 +47,19 @@
 * Last class: Two major types of HTML body elements: block level and inline
 * Recall question: difference between absolute and relative URLs --which to use for portability?
 * Recall question: why is the `alt` attribute necessary for images?
-* Question: _how do you build a web browser?_
 * What I am NOT going to do: discuss every HTML tag
 * What is important to discuss: the finer points of HTML
   - Recall last class: what's peculiar about HTML? (hints: closing tags, attributes, nesting)
   - Commandments
-* What I've noticed: lots of you connecting to Tufts CS to do work via SSH, questions on submitting assignments and labs in this class?
+* Question: _how do you build a web browser?_
+* What I've noticed in the past: many connecting to Tufts CS to do work via SSH, questions on submitting assignments and labs in this class?
 * The nightmare scenario that illustrates the need for revision control: in the past...
 * What if I need to hire developers to work on different pieces of a projet?
 * Why revision control? Keep track of changes, document changes
 * Why Git? Speed, no dependency of a remote server (unlike Subversion)
 * Why GitHub for repositories? Network effect
 * Example with our course website
+* IMPORTANT: you are not expected to master Git by the end of this course.  The reality, even for the most seasoned people: https://twitter.com/ErrataRob/status/707327952158121984
 
 #Tuesday, September 20th: Cascading Style Sheets (CSS)
 * Why do you want to separate style?
