@@ -18,7 +18,7 @@ HTML examples.
 11. Thou shall not absolute URIs all the time.
 12. Thou shall not write too many HTML comments.
 13. Thou shall always give an HTML page a title in the <head> section.
-14. Thou shall always validate HTML markup at http://validator.w3.org/.
+14. Thou shall always validate HTML markup at https://validator.w3.org/.
 
 #Exercise
 1. Identify all the problems in `fail.html`
