@@ -78,6 +78,7 @@
 * Loading additional stylesheets
 
 #Thursday, September 22nd: Responsive Design
+* Next week: Career Fair, Reverse Career Fair.  Be in class next Thursday --you don't want to miss it.
 * Last class: CSS
 * Why CSS?  What do they give you?
 * Recall: id vs class
