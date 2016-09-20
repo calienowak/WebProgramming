@@ -1,0 +1,41 @@
+/* A simple stylesheet */
+
+body {
+	background-color: gray;
+}
+
+/* Lines 12 - 16 (inclusive) => a single rule */
+/* h1 is better known as a "selector" */
+/* "border-style: dashed;" is better known as a "declaration" */
+/* A declaration is a key-value pair */
+
+h1 {
+	color: #ff69b4;
+	border-style: dashed;
+	padding: 25px;
+}
+
+#header {
+	font-family: Helvetica;
+	text-align: center;
+}
+
+p {
+	font-size: 24px;
+	font-family: Georgia;
+	color: white;
+	background-color: #ff69b4;
+	margin-left: 25%;
+	margin-right: 25%;
+}
+
+.peeps {
+	font-size: 28px;
+	background: yellow;
+}
+
+p {
+	font-size: 10px;
+	color: blue;
+	border: dashed;
+}
