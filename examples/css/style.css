@@ -36,7 +36,6 @@ body {
 	border-style: dotted;
 	margin-left: 20%;
 	margin-right: 20%;
-	padding: 10%;
 }
 
 .peeps {
@@ -49,6 +48,6 @@ body {
 	font-size: 40px;
 }
 
-p .peeps {
-	font-size:10px;
+p.peeps {
+	font-size: 10px;
 }
