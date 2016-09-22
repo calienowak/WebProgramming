@@ -90,4 +90,6 @@
 * So can I have a different stylesheets for different screen sizes and devices?
   * http://broadcast.oreilly.com/2010/04/using-css-media-queries-ipad.html
 * Can I have different rules in a CSS for different screen sizes (e.g., widths)?
+* Gmail in the news recently: http://googleappsdeveloper.blogspot.com/2016/09/your-emails-optimized-for-every-screen-with-responsive-design.html
 * Your next lab
+* Why this?
