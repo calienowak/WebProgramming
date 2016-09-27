@@ -106,3 +106,44 @@
 * Function arguments: (1) too many: extras ignored, (2) too few: remainders get an undefined value
 * Lists (a.k.a., arrays)
 * _(Almost) everything in JavaScript is an object_ https://stackoverflow.com/questions/9108925/how-is-almost-everything-in-javascript-an-object
+
+#Tuesday, October 4th: Functions in JavaScript
+* Last class: JavaScript data and data structures (lists and dictionaries)
+* Recall: almost everything in JavaScript is a/an ______
+* Too many built-in JavaScript objects to name: string, Date, Math
+* Special object in JavaScript: the associative array a.k.a., dictionary a.k.a., hash a.k.a., finite map
+* So what about functions?
+* Who is in COMP 105 currently or have taken COMP 105?
+* What if I told you functions can be used as values to variables? Functions as arguments to functions? That's what it means by functions as first-class!
+* Consider example at http://www.joelonsoftware.com/items/2006/08/01.html
+* Recall Algebra: function composition
+* Why is this a powerful idea?
+  - Reduce repetitive code
+  - More reusable and scalable code
+  - "Object Oriented Programming" in JavaScript
+  - Example: `apply` https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply
+* Is this idea that important in JavaScript? Yes, not only in JavaScript but in many languages and frameworks as well
+  * Events
+  * Callbacks (e.g., working with the GPS)
+  * Asynchronous communications (e.g., downloading data from the web within a running app)
+* Okay, but how do I use JavaScript in an HTML page?  Or how do I dynamically modify a loaded HTML page using JavaScript?
+
+#Thursday, October 6th: Document Object Model (DOM)
+* Last class: dot notation, first class functions, we started talking about using JavaScript in an HTML page
+* So, what could you do with dot notation + first class functions?
+* The big idea: using JavaScript to dynamically modify HTML content _after it is loaded_.  Yes, you can mix HTML and JavaScript
+* The document object: a JavaScript object that contains the entire structure of an HTML page after it is loaded, in tree-like format (thus, known as the Document Object Model tree).  Example of a DOM tree: https://developer.mozilla.org/en-US/docs/Using_the_W3C_DOM_Level_1_Core
+* Example 1: Tufts FML
+* Example 2: Prepending
+  `// The idea: create a new node and prepend to the first node in the "content" div
+        newElem = document.createElement("p");
+        newElem.innerHTML = '<p><span class="message">' +theMessage + " #FML</span></p>";
+        toUpdate.insertBefore(newElem, toUpdate.childNodes[0]);`
+* A powerful idea: update the HTML based on events
+* Example 3: Highlighting paragraphs in an HTML document
+* Example 4: Double Rainbow
+* Even more powerful idea: update the HTML with data from a web server
+* Your next lab
+* Your Assignment 2
+* Semester Group Project
+* Midsemester evals
