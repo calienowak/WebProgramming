@@ -106,6 +106,7 @@
 * Function arguments: (1) too many: extras ignored, (2) too few: remainders get an undefined value
 * Lists (a.k.a., arrays)
 * _(Almost) everything in JavaScript is an object_ https://stackoverflow.com/questions/9108925/how-is-almost-everything-in-javascript-an-object
+* Lena Warnke & Gina Kuperberg
 
 #Tuesday, October 4th: Functions in JavaScript
 * Last class: JavaScript data and data structures (lists and dictionaries)
