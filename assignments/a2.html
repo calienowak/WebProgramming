@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1"/>
+<link rel="stylesheet" href="../stylesheets/style.css" />
+<title>COMP 20: Web Programming - Assignment 2</title>
+</head>
+
+<body>
+<h1>COMP 20: Web Programming</h1>
+<h2>Assignment 2: Closest MBTA Station</h2>
+<h2>Due: Tuesday, October 18th (NOTE: Grace Hopper Conference attendees, please email me)</h2>
+
+<h2>Overview</h2>
+<p>You will create a web page (with a server) that shows all the MBTA (Massachusetts Bay Transportation Authority) Red Line subway train stations on a map and each station's real-time schedule of upcoming trains.  If you are not familiar with the MBTA subway system, the Red Line can be seen at <a href="http://www.mbta.com/schedules_and_maps/subway/lines/?route=RED" target="_blank">http://www.mbta.com/schedules_and_maps/subway/lines/?route=RED</a>.  The MBTA also provides APIs providing real-time data on subway schedules (except for the Green Line), bus schedules, and alerts for developers to use: see <a href="http://www.mbta.com/rider_tools/developers/" target="_blank">http://www.mbta.com/rider_tools/developers/</a>.</p>
+
+<p>It is important to note that instructions for this lab may be deliberately vague at times.  You are expected to ask questions if you are confused or not sure about something as in the professional world.  There will also be opportunities to go beyond expectations especially for those who feel they have mastered the material.</p>
+
+<h2>Instructions</h2>
+<p>The following is a table of all the MBTA Red Line subway stations and their geolocations:</p>
+<pre>
+     stop_name     |  stop_lat   |      stop_lon      
+-------------------+-------------+--------------------
+ South Station     |   42.352271 | -71.05524200000001
+ Andrew            |   42.330154 |         -71.057655
+ Porter Square     |     42.3884 | -71.11914899999999
+ Harvard Square    |   42.373362 |         -71.118956
+ JFK/UMass         |   42.320685 |         -71.052391
+ Savin Hill        |    42.31129 |         -71.053331
+ Park Street       | 42.35639457 |        -71.0624242
+ Broadway          |   42.342622 |         -71.056967
+ North Quincy      |   42.275275 |         -71.029583
+ Shawmut           | 42.29312583 | -71.06573796000001
+ Davis             |    42.39674 |         -71.121815
+ Alewife           |   42.395428 |         -71.142483
+ Kendall/MIT       | 42.36249079 |       -71.08617653
+ Charles/MGH       |   42.361166 |         -71.070628
+ Downtown Crossing |   42.355518 |         -71.060225
+ Quincy Center     |   42.251809 |         -71.005409
+ Quincy Adams      |   42.233391 |         -71.007153
+ Ashmont           |   42.284652 | -71.06448899999999
+ Wollaston         |  42.2665139 |        -71.0203369
+ Fields Corner     |   42.300093 |         -71.061667
+ Central Square    |   42.365486 |         -71.103802
+ Braintree         |  42.2078543 |        -71.0011385
+</pre>
+
+<p>Create a page (named <code>index.html</code>) that displays a Google Map of all the MBTA Red Line subway stations.  Requirements:</p>
+
+<ul>
+	<li>The map shall take up the entire page.</li>
+	<li>Each station on the map shall be a marker with an icon: use the same icon image for each marker.  The Google Maps default red marker pin is not good enough.</li>
+	<li>Render a red polyline connecting each station, thus showing the complete Red Line on the map.  Please note that the Red Line forks at JFK/UMass Station: see <a href="http://www.mbta.com/schedules_and_maps/subway/lines/?route=RED" target="_blank">http://www.mbta.com/schedules_and_maps/subway/lines/?route=RED</a></li>
+	<li>A CSS file is required in order for the Google Map to even work.</li>
+	<li>Each subway station and it's corresponding location can be hard-coded in JavaScript.</li>
+	<li>Use a separate file for the JavaScript.  Do not mix JavaScript in the HTML file with the exception of the script tag to include the JavaScript file.</li>
+	<li>Determine your geolocation (geographic latitude and longitude) using the JavaScript <code>navigator.geolocation</code> object. Upon determining your geolocation, place a marker of where you are on the map.  The icon of the marker must be different than icon used for each MBTA subway station (it can be the default red pin Google uses).</li>
+	<li>The map shall be centered on your location.</li>
+	<li>Upon clicking on your marker on the map, display an information window (a.k.a., infowindow) noting the closest MBTA Red Line subway station from where you are including the distance away in miles.</li>
+	<li>Render a polyline (any color) that connects "your" marker to the marker of the closest MBTA Red Line subway station.</li>
+	<li>Upon clicking on a MBTA Red Line subway station marker, display an infowindow of the schedule of upcoming trains for that station.  Use JSON API of Red Line trains that I provide (see more details below).</li>
+</ul>
+
+<p>The required files for this part of the assignment: <code>index.html</code>, one CSS file, one JavaScript file, the <code>README</code> (more details on <code>README</code> below).</p>
+<p class="note">You are not allowed to use jQuery or any JavaScript front-end framework for this assignment.</p>
+
+<h2>Getting Started</h2>
+<ol>
+<li>Create a new folder named <code>mbta</code> in your folder <code>comp20-username</code> on your computer (the one you have been using since Lab 4).</li>
+<li>Follow the Google Maps JavaScript API tutorial "Getting Started" at <a href="https://developers.google.com/maps/documentation/javascript/tutorial" target="_blank">https://developers.google.com/maps/documentation/javascript/tutorial</a>.</li>
+<li class="note">NOTE: You do not need to create an API key to use Google Maps API version 3.</span>You can see <code>geolocation_map.html</code> in action at <a href="https://tuftsdev.github.io/WebProgramming/examples/google_maps/geolocation_map.html" target="_blank">https://tuftsdev.github.io/WebProgramming/examples/google_maps/geolocation_map.html</a>.</li>
+</ol>
+
+<h2>The JSON API of MBTA Red Line Trains</h2>
+<p>The URL of the JSON API is <code>https://rocky-taiga-26352.herokuapp.com/redline.json</code></p>
+
+<p>This is a real-time schedule of the MBTA Red Line subway trains and it is updated very frequently.  Please refer to this document for the description of the keys in the JSON data: <a href="http://www.mbta.com/uploadedfiles/Description.pdf" target="_blank">http://www.mbta.com/uploadedfiles/Description.pdf</a></p>
+
+<h2>Calulating the Distance Between Two Geopoints via Haversine Formula</h2>
+<p>To calculate the distance between two geopoints (latitude and longitude), you must use the Haversine Formula.  The formula is provided and analyzed at <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">http://www.movable-type.co.uk/scripts/latlong.html</a>.  Also, you are encouraged to use the JavaScript implementation of the Haversine Formula on Stasck Overflow but please do cite it in your <code>README.md</code> or in your code: <a href="http://stackoverflow.com/questions/14560999/using-the-haversine-formula-in-javascript" target="_blank">http://stackoverflow.com/questions/14560999/using-the-haversine-formula-in-javascript</a>.</p>
+
+<h2>Testing Your Work</h2>
+<p>For this assignment, you <em>cannot</em> open the <code>index.html</code> page on a web browser as <code>navigator.geolocation</code> requires a server.  To test your work locally, run Python's simple HTTP server in the folder of your work.  That is:</p>
+<p><code>% cd comp20-XXXXX/mbta; # where XXXXX is the name of your private GitHub repository<br/>% python -m SimpleHTTPServer<br/></code></p>
+<p>By default, a simple web server will open up on port 8000.  Go to <code>http://localhost:8000/</code> on your favorite web browser to test your work.</p>
+<p class="note">Do not serve your work via the <code>gh-pages</code> branch of your private GitHub repository.</p>
+
+<h2>The <code>README</code> File</h2>
+<p>Each assignment and lab shall include a <code>README</code> file that describes the work. This description must:</p>
+<ol>
+<li>Identify what aspects of the work have been correctly implemented and what have not.</li>
+<li>Identify anyone with whom you have collaborated or discussed the assignment.</li>
+<li>Say approximately how many hours you have spent completing the assignment.</li>
+<li>Be written in either text format (<code>README.txt</code>) or in Markdown (<code>README.md</code>).  Markdown is preferred.  No other formats will be accepted.  Please use all capital letters for <code>README</code></li>
+</ol>
+<p>This <code>README</code> file must be directly in the folder of the lab or assignment.</p>
+
+<h2>Submitting the Assignment</h2>
+<p>Push all your changes to the private repository in GitHub that I created for you in a folder named <code>mbta</code> under the <code>master</code> branch. Say that your private repository in GitHub is named <code>comp20-mchow</code>, make sure all the files are pushed to <code>comp20-mchow/mbta</code>.</p>
+
+<h2>Assessment</h2>
+<p>This lab is worth 15 points:</p>
+<ul>
+<li>(1 point) <code>README</code></li>
+<li>(1 point) The basics (proper repository folder name, 1 CSS file, map on entire page)</li>
+<li>(1 point) All the MBTA Red Line subway stations are marked on the map</li>
+<li>(1 point) Each station on the map shall be a marker with an icon: use the same icon image for each marker</li>
+<li>(2 points) Render a red polyline connecting each station, thus showing the complete Red Line on the map</li>
+<li>(2 points) Determine and mark your location on the map</li>
+<li>(2 points) Note the closest MBTA Red Line subway station from where you are (e.g., upon clicking on marker of where you are)</li>
+<li>(1 point) Polyline connecting your marker to the closest MBTA Red Line subway station</li>
+<li>(4 points) Upon clicking on a MBTA Red Line subway station marker, display an infowindow of the schedule of upcoming trains for that station</li>
+<li>(-5 points) Nonsense Git commit messages or did not commit much.</li>
+<li>(-7 points) Programming errors and <code>console.log()</code> outputs exist in JavaScript console (warnings acceptable).</li>
+<li>(-15 points) You used jQuery.</li>
+</ul>
+
+</body>
+</html>
