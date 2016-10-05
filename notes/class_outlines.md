@@ -130,9 +130,10 @@
 * Okay, but how do I use JavaScript in an HTML page?  Or how do I dynamically modify a loaded HTML page using JavaScript?
 
 #Thursday, October 6th: Document Object Model (DOM)
-* Last class: dot notation, first class functions, we started talking about using JavaScript in an HTML page
-* So, what could you do with dot notation + first class functions?
+* Last class: "var", first class functions, we started talking about using JavaScript in an HTML page
 * The big idea: using JavaScript to dynamically modify HTML content _after it is loaded_.  Yes, you can mix HTML and JavaScript
+* We will apply the idea of first class functions
+* Definition: event
 * The document object: a JavaScript object that contains the entire structure of an HTML page after it is loaded, in tree-like format (thus, known as the Document Object Model tree).  Example of a DOM tree: https://developer.mozilla.org/en-US/docs/Using_the_W3C_DOM_Level_1_Core
 * Example 1: Tufts FML
 * Example 2: Prepending
@@ -143,8 +144,8 @@
 * A powerful idea: update the HTML based on events
 * Example 3: Highlighting paragraphs in an HTML document
 * Example 4: Double Rainbow
-* Even more powerful idea: update the HTML with data from a web server
+* Nex time: even more powerful idea: update the HTML with data from a web server
 * Your next lab
 * Your Assignment 2
 * Semester Group Project
-* Midsemester evals
+* Quiz
